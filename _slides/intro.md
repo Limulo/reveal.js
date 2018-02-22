@@ -66,7 +66,7 @@ con 8 bit a disposizione si rappresentano da 0 a 255
 ### Il circuito
 
 
-<!-- .slide: data-background-size="contain" data-background-color="#fff" data-background-image="images/MIDI-IN_bb.png" -->
+<!-- .slide: data-background-size="contain" data-background-color="#fff" data-background-image="http://www.limulo.net/website/assets/images/midi-interface/MIDI-IN_bb.png" -->
 
 
 <!-- .slide data-background-size="contain" data-background-color="#fff" data-background-image="https://en.wikipedia.org/wiki/MIDI#/media/File:MIDI_IN_OUT_schematic.png" -->
@@ -81,37 +81,34 @@ che cosa è un optoaccoppiatore.
 La libreria **Software Serial**
 
 
-<pre>
-<code class="c" data-trim contenteditable>
-#include <SoftwareSerial.h>
+<code>
+    #include <SoftwareSerial.h>
 
-const byte rxPin = 11;
-const byte txPin = 10; // not used for the moment
+    const byte rxPin = 11;
+    const byte txPin = 10; // not used for the moment
 
-SoftwareSerial mySerial(rxPin, txPin);
+    SoftwareSerial mySerial(rxPin, txPin);
 
-// SETUP ///////////////////////////////////////////
-void setup()
-{
-  pinMode( rxPin, INPUT );
-  pinMode( txPin, OUTPUT);
-  mySerial.begin( 31250 );
+    // SETUP ///////////////////////////////////////////
+    void setup()
+    {
+      pinMode( rxPin, INPUT );
+      pinMode( txPin, OUTPUT);
+      mySerial.begin( 31250 );
 
-  Serial.begin( 9600 );
-}
+      Serial.begin( 9600 );
+    }
 
-
-// LOOP ////////////////////////////////////////////
-void loop()
-{
-  while( mySerial.available() > 0 )
-  {
-    unsigned char c = mySerial.read();
-    Serial.println( c, DEC );
-  }
-}
+    // LOOP ////////////////////////////////////////////
+    void loop()
+    {
+      while( mySerial.available() > 0 )
+      {
+        unsigned char c = mySerial.read();
+        Serial.println( c, DEC );
+      }
+    }
 </code>
-</pre>
 
 
 ### analisi dei messaggi
@@ -153,10 +150,54 @@ void loop()
 ### Il circuito
 
 
-<!-- .slide: data-background-size="contain" data-background-color="#fff" data-background-image="images/MIDI-OUT_bb.png" -->
+<!-- .slide: data-background-size="contain" data-background-color="#fff" data-background-image="http://www.limulo.net/website/assets/images/midi-interface/MIDI-OUT_bb.png" -->
 
 
 ### Il codice
+
+
+<code>
+    #include <SoftwareSerial.h>
+
+    const byte rxPin = 11; // not used for the moment
+    const byte txPin = 10;
+
+    SoftwareSerial mySerial(rxPin, txPin);
+
+    int dly = 100;
+    int note, velocity;
+
+    // SETUP ///////////////////////////////////////////
+    void setup()
+    {
+     pinMode( rxPin, INPUT );
+     pinMode( txPin, OUTPUT);
+     mySerial.begin( 31250 );
+    }
+
+    // LOOP ////////////////////////////////////////////
+    void loop()
+    {
+     note = random(24)+60;
+     velocity = 127;
+
+     // note On
+     mySerial.write(144);
+     mySerial.write(note);
+     mySerial.write( velocity );
+
+     delay(dly);
+
+     velocity = 0;
+
+     // note Off
+     mySerial.write(144);
+     mySerial.write(note);
+     mySerial.write( velocity );
+
+     delay(dly);
+    }
+</code>
 
 
 
@@ -169,10 +210,38 @@ void loop()
 ### Il circuito
 
 
-<!-- .slide: data-background-size="contain" data-background-color="#fff" data-background-image="images/MIDI-IN-OUT_bb.png" -->
+<!-- .slide: data-background-size="contain" data-background-color="#fff" data-background-image="http://www.limulo.net/website/assets/images/midi-interface/MIDI-IN-OUT_bb.png" -->
 
 
 ### Il cocice
 
 
 Libreria **AltSerial**
+
+
+<code>
+    #include <AltSoftSerial.h>
+
+    AltSoftSerial midiSerial;
+
+    // #define RXPIN 8
+    // #define TXPIN 9
+
+    // SETUP ///////////////////////////////////////////
+    void setup()
+    {
+      Serial.begin( 9600 );
+      midiSerial.begin(31250);
+    }
+
+    // LOOP ////////////////////////////////////////////
+    void loop()
+    {  
+      while( midiSerial.available() > 0 )
+      {
+        int incomingByte = midiSerial.read();
+        midiSerial.write( incomingByte );
+        Serial.println( incomingByte, DEC );
+      }
+    }
+</code>
