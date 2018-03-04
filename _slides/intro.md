@@ -66,19 +66,31 @@ con 8 bit a disposizione si rappresentano da 0 a 255
 ### Il circuito
 
 
-<!-- .slide: data-background-size="contain" data-background-color="#fff" data-background-image="http://www.limulo.net/website/assets/images/midi-interface/MIDI-IN_bb.png" -->
+<!-- .slide: data-background-size="contain" data-background-color="#fff" data-background-image="http://www.limulo.net/website/assets/images/midi-interface/MIDI_IN_bb_new.png" -->
 
 
-<!-- .slide data-background-size="contain" data-background-color="#fff" data-background-image="https://en.wikipedia.org/wiki/MIDI#/media/File:MIDI_IN_OUT_schematic.png" -->
+<!-- .slide: data-background-size="contain" data-background-color="#fff" data-background-image="http://www.limulo.net/website/assets/images/midi-interface/wikipedia_MIDI_IN_OUT_schematic.jpg" -->
 
 
-che cosa è un optoaccoppiatore.
+<!-- .slide: data-background-size="contain" data-background-color="#fff" data-background-image="http://www.limulo.net/website/assets/images/midi-interface/perotti_schematics.jpg" -->
+
+
+#### Optoaccoppiatore (optoisolatore)
+
+<!-- .slide: data-background-size="contain" data-background-color="#fff"-->
+![optoaccoppiatore](images/Optoisolator_Pinout.png)
+
+
+<!-- .slide: data-background-size="contain" data-background-color="#fff"-->
+![optoaccoppiatore](images/6n138-overview.png)
 
 
 ### Il codice
 
 
 La libreria **Software Serial**
+
+Cosa fa breve introduzione
 
 
 <code>
@@ -150,7 +162,7 @@ La libreria **Software Serial**
 ### Il circuito
 
 
-<!-- .slide: data-background-size="contain" data-background-color="#fff" data-background-image="http://www.limulo.net/website/assets/images/midi-interface/MIDI-OUT_bb.png" -->
+<!-- .slide: data-background-size="contain" data-background-color="#fff" data-background-image="http://www.limulo.net/website/assets/images/midi-interface/MIDI_OUT_bb_new.png" -->
 
 
 ### Il codice
@@ -210,7 +222,7 @@ La libreria **Software Serial**
 ### Il circuito
 
 
-<!-- .slide: data-background-size="contain" data-background-color="#fff" data-background-image="http://www.limulo.net/website/assets/images/midi-interface/MIDI-IN-OUT_bb.png" -->
+<!-- .slide: data-background-size="contain" data-background-color="#fff" data-background-image="http://www.limulo.net/website/assets/images/midi-interface/MIDI_IN_OUT_bb_new.png" -->
 
 
 ### Il cocice
