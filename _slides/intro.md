@@ -30,7 +30,7 @@ inizi anni '80 trasformazione digitale completa
 <!-- .slide: data-background-size="contain" data-background-color="#fff" data-background-image="images/general-midi-logo.png" -->
 
 
-<!-- .slide: data-background-size="contain" data-background-color="#000" data-background-image="images/prophet_600.jpg" -->
+<!-- .slide: data-background-size="contain" data-background-color="#be5f31" data-background-image="images/prophet_600.jpg" -->
 
 
 dal 1984 indicativamente tutti i produttori che usino il MIDI sono tenuti ad attenersi alle specifiche per garantire compatibilità  
@@ -52,6 +52,10 @@ comunicazione seriale/parallela ?
 con 8 bit a disposizione si rappresentano da 0 a 255
 
 
+<!-- .slide: data-background-color="#fff" -->
+![DIN 5 pin](images/DIN5pin.jpg)<!-- .element: style="width:50%;" -->
+
+
 
 ## Esperimento 1
 
@@ -62,16 +66,61 @@ con 8 bit a disposizione si rappresentano da 0 a 255
 ### Il circuito
 
 
-<!-- .slide: data-background-size="contain" data-background-color="#fff" data-background-image="images/MIDI-IN_bb.png" -->
+<!-- .slide: data-background-size="contain" data-background-color="#fff" data-background-image="http://www.limulo.net/website/assets/images/midi-interface/MIDI_IN_bb_new.png" -->
 
 
-che cosa è un optoaccoppiatore.
+<!-- .slide: data-background-size="contain" data-background-color="#fff" data-background-image="http://www.limulo.net/website/assets/images/midi-interface/wikipedia_MIDI_IN_OUT_schematic.jpg" -->
+
+
+<!-- .slide: data-background-size="contain" data-background-color="#fff" data-background-image="http://www.limulo.net/website/assets/images/midi-interface/perotti_schematics.jpg" -->
+
+
+#### Optoaccoppiatore (optoisolatore)
+
+<!-- .slide: data-background-size="contain" data-background-color="#fff"-->
+![optoaccoppiatore](images/Optoisolator_Pinout.png)
+
+
+<!-- .slide: data-background-size="contain" data-background-color="#fff"-->
+![optoaccoppiatore](images/6n138-overview.png)
 
 
 ### Il codice
 
 
 La libreria **Software Serial**
+
+Cosa fa breve introduzione
+
+
+<code>
+    #include <SoftwareSerial.h>
+
+    const byte rxPin = 11;
+    const byte txPin = 10; // not used for the moment
+
+    SoftwareSerial mySerial(rxPin, txPin);
+
+    // SETUP ///////////////////////////////////////////
+    void setup()
+    {
+      pinMode( rxPin, INPUT );
+      pinMode( txPin, OUTPUT);
+      mySerial.begin( 31250 );
+
+      Serial.begin( 9600 );
+    }
+
+    // LOOP ////////////////////////////////////////////
+    void loop()
+    {
+      while( mySerial.available() > 0 )
+      {
+        unsigned char c = mySerial.read();
+        Serial.println( c, DEC );
+      }
+    }
+</code>
 
 
 ### analisi dei messaggi
@@ -119,10 +168,54 @@ La libreria **Software Serial**
 ### Il circuito
 
 
-<!-- .slide: data-background-size="contain" data-background-color="#fff" data-background-image="images/MIDI-OUT_bb.png" -->
+<!-- .slide: data-background-size="contain" data-background-color="#fff" data-background-image="http://www.limulo.net/website/assets/images/midi-interface/MIDI_OUT_bb_new.png" -->
 
 
 ### Il codice
+
+
+<code>
+    #include <SoftwareSerial.h>
+
+    const byte rxPin = 11; // not used for the moment
+    const byte txPin = 10;
+
+    SoftwareSerial mySerial(rxPin, txPin);
+
+    int dly = 100;
+    int note, velocity;
+
+    // SETUP ///////////////////////////////////////////
+    void setup()
+    {
+     pinMode( rxPin, INPUT );
+     pinMode( txPin, OUTPUT);
+     mySerial.begin( 31250 );
+    }
+
+    // LOOP ////////////////////////////////////////////
+    void loop()
+    {
+     note = random(24)+60;
+     velocity = 127;
+
+     // note On
+     mySerial.write(144);
+     mySerial.write(note);
+     mySerial.write( velocity );
+
+     delay(dly);
+
+     velocity = 0;
+
+     // note Off
+     mySerial.write(144);
+     mySerial.write(note);
+     mySerial.write( velocity );
+
+     delay(dly);
+    }
+</code>
 
 
 
@@ -135,10 +228,38 @@ La libreria **Software Serial**
 ### Il circuito
 
 
-<!-- .slide: data-background-size="contain" data-background-color="#fff" data-background-image="images/MIDI-IN-OUT_bb.png" -->
+<!-- .slide: data-background-size="contain" data-background-color="#fff" data-background-image="http://www.limulo.net/website/assets/images/midi-interface/MIDI_IN_OUT_bb_new.png" -->
 
 
 ### Il cocice
 
 
 Libreria **AltSerial**
+
+
+<code>
+    #include <AltSoftSerial.h>
+
+    AltSoftSerial midiSerial;
+
+    // #define RXPIN 8
+    // #define TXPIN 9
+
+    // SETUP ///////////////////////////////////////////
+    void setup()
+    {
+      Serial.begin( 9600 );
+      midiSerial.begin(31250);
+    }
+
+    // LOOP ////////////////////////////////////////////
+    void loop()
+    {  
+      while( midiSerial.available() > 0 )
+      {
+        int incomingByte = midiSerial.read();
+        midiSerial.write( incomingByte );
+        Serial.println( incomingByte, DEC );
+      }
+    }
+</code>
