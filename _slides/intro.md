@@ -5,36 +5,35 @@
 <!-- 1964 - moog -->
 
 
-modulare, control voltage
+<!-- .slide: data-background-color="#fff" -->
+<svg width="100%" viewBox="0 0 1024 744.09">
+
+  <svg class="fragment" data-fragment-index="4">
+    <use xlink:href="/images/MIDI_birthday.svg#others">
+  </svg>
+
+  <svg class="fragment" data-fragment-index="3">
+    <use xlink:href="/images/MIDI_birthday.svg#sci">
+  </svg>
+
+  <svg class="fragment" data-fragment-index="2">
+    <use xlink:href="/images/MIDI_birthday.svg#oberheim">
+  </svg>
+
+  <svg data-fragment-index="1">
+    <use xlink:href="/images/MIDI_birthday.svg#roland">
+  </svg>
+
+</svg>
 
 
-da monofonici a polifonici
+![Roland Jupiter6](/images/roland_jupiter6.jpg)
 
 
-generazione analogica del suono ma aggiunta di memorie per salvare le impostazioni dei controlli (ora digitali)
+![Roland prophet600](/images/prophet_600.jpg)
 
 
-inizi anni '80 trasformazione digitale completa
-
-
-
-## MIDI
-
-
-1981 - Sequential Circuit propone una prima ipotesi di protocollo MIDI
-
-
-1982 - in collaborazione con Korg, Yamaha, Roland, Kawai
-
-
-<!-- .slide: data-background-size="contain" data-background-color="#fff" data-background-image="images/general-midi-logo.png" -->
-
-
-<!-- .slide: data-background-size="contain" data-background-color="#be5f31" data-background-image="images/prophet_600.jpg" -->
-
-
-dal 1984 indicativamente tutti i produttori che usino il MIDI sono tenuti ad attenersi alle specifiche per garantire compatibilità  
-
+![Roland tr909](/images/roland_tr909.jpg)
 
 
 ## Dati!
