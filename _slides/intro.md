@@ -152,6 +152,12 @@ Cosa fa breve introduzione
 <!-- .slide: data-background-size="contain" data-background-color="#fff" data-background-image="images/note_numbers.png" -->
 
 
+#### Osservazioni: Note ON & Note Off
+
+
+#### Osservazioni: Running status
+
+
 
 ## Esperimento 2
 
