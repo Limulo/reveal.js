@@ -36,42 +36,65 @@
 ![Roland tr909](/images/roland_tr909.jpg)
 
 
-## Dati!
-
-
-informazione digitale / analogica
-
-
-unità base il bit, byte, nibble
-
-
-comunicazione seriale/parallela ?
-
-
-con 8 bit a disposizione si rappresentano da 0 a 255
-
 
 <!-- .slide: data-background-color="#fff" -->
 ![DIN 5 pin](images/DIN5pin.jpg)<!-- .element: style="width:50%;" -->
 
 
+<!-- .slide: data-background-color="#fff" -->
+<svg width="100%" viewBox="0 0 827.14 236.30">
+
+  <svg class="fragment" data-fragment-index="4">
+    <use xlink:href="/images/bit_bytes.svg#byte2">
+  </svg>
+
+  <svg class="fragment" data-fragment-index="5">
+    <use xlink:href="/images/bit_bytes.svg#nibbles">
+  </svg>
+
+  <svg class="fragment" data-fragment-index="3">
+    <use xlink:href="/images/bit_bytes.svg#byte1">
+  </svg>
+
+  <svg class="fragment" data-fragment-index="2">
+    <use xlink:href="/images/bit_bytes.svg#bit2">
+  </svg>
+
+  <svg data-fragment-index="1">
+    <use xlink:href="/images/bit_bytes.svg#bit1">
+  </svg>
+
+</svg>
+
+
 
 ## Esperimento 1
+
+### Obiettivi<!-- .element: class="fragment" -->
+
+* connettere un dispositivo MIDI trasmittente ad Arduino;<!-- .element: class="fragment" -->
+* connettere Arduino al PC per monitorare i messaggi in arrivo;<!-- .element: class="fragment" -->
 
 
 <!-- .slide: data-background-size="contain" data-background-color="#fff" data-background-image="images/MIDI-studio-in.png" -->
 
 
+<!-- .slide: data-background-size="contain" data-background-color="#fff" data-background-image="resources/datasheets/Arduino_Uno_Rev3-schematic.jpg" -->
+
+
+<!-- .slide: data-background-size="contain" data-background-color="#fff" data-background-image="images/UNO.jpg" -->
+
+
 ### Il circuito
-
-
-<!-- .slide: data-background-size="contain" data-background-color="#fff" data-background-image="http://www.limulo.net/website/assets/images/midi-interface/MIDI_IN_bb_new.png" -->
 
 
 <!-- .slide: data-background-size="contain" data-background-color="#fff" data-background-image="http://www.limulo.net/website/assets/images/midi-interface/wikipedia_MIDI_IN_OUT_schematic.jpg" -->
 
 
 <!-- .slide: data-background-size="contain" data-background-color="#fff" data-background-image="http://www.limulo.net/website/assets/images/midi-interface/perotti_schematics.jpg" -->
+
+
+<!-- .slide: data-background-size="contain" data-background-color="#fff" data-background-image="http://www.limulo.net/website/assets/images/midi-interface/MIDI_IN_bb_new.png" -->
 
 
 #### Optoaccoppiatore (optoisolatore)
@@ -87,9 +110,7 @@ con 8 bit a disposizione si rappresentano da 0 a 255
 ### Il codice
 
 
-La libreria **Software Serial**
-
-Cosa fa breve introduzione
+**Software Serial**
 
 
 <code>
@@ -122,14 +143,11 @@ Cosa fa breve introduzione
 </code>
 
 
-### analisi dei messaggi
+### Analisi dei messaggi
 
 
 <!-- .slide: data-background-size="contain" data-background-color="#fff" data-background-image="images/serial-monitor-1.png" -->
 
-
-
-#### Status Byte / data Byte
 
 
 <!-- .slide: data-background-color="#fff" -->
@@ -138,14 +156,6 @@ Cosa fa breve introduzione
 
 <!-- .slide: data-background-color="#fff" -->
 ![status and data bits](images/status-and-data-bits.png)<!-- .element: style="width:50%;" -->
-
-
-<!-- .slide: data-background-color="#fff" -->
-![status and data bits](images/nibbles.png)<!-- .element: style="width:50%;" -->
-
-
-<!-- .slide: data-background-color="#fff" -->
-![status and data bits](images/MIDI-channels.png)<!-- .element: style="width:90%;" -->
 
 
 <!-- .slide: data-background-size="contain" data-background-color="#fff" data-background-image="images/note_numbers.png" -->
@@ -160,11 +170,22 @@ Cosa fa breve introduzione
 
 ## Esperimento 2
 
+### Obiettivi<!-- .element: class="fragment" -->
+
+* connettere un dispositivo MIDI ricevente ad Arduino;<!-- .element: class="fragment" -->
+* inviare messaggi al dispositivo programmaticamente;<!-- .element: class="fragment" -->
+
 
 <!-- .slide: data-background-size="contain" data-background-color="#fff" data-background-image="images/MIDI-studio-out.png" -->
 
 
 ### Il circuito
+
+
+<!-- .slide: data-background-size="contain" data-background-color="#fff" data-background-image="http://www.limulo.net/website/assets/images/midi-interface/wikipedia_MIDI_IN_OUT_schematic.jpg" -->
+
+
+<!-- .slide: data-background-size="contain" data-background-color="#fff" data-background-image="http://www.limulo.net/website/assets/images/midi-interface/perotti_schematics.jpg" -->
 
 
 <!-- .slide: data-background-size="contain" data-background-color="#fff" data-background-image="http://www.limulo.net/website/assets/images/midi-interface/MIDI_OUT_bb_new.png" -->
@@ -201,7 +222,7 @@ Cosa fa breve introduzione
      // note On
      mySerial.write(144);
      mySerial.write(note);
-     mySerial.write( velocity );
+     mySerial.write(velocity);
 
      delay(dly);
 
@@ -210,7 +231,66 @@ Cosa fa breve introduzione
      // note Off
      mySerial.write(144);
      mySerial.write(note);
-     mySerial.write( velocity );
+     mySerial.write(velocity);
+
+     delay(dly);
+    }
+</code>
+
+Non suona! perchè?
+
+
+<!-- .slide: data-background-color="#fff" -->
+![status and data bits](images/MIDI-channels.png)<!-- .element: style="width:90%;" -->
+
+
+<!-- .slide: data-background-color="#fff" -->
+![status and data bits](images/nibbles.png)<!-- .element: style="width:50%;" -->
+
+
+* cambiare il canale sul ricevitore;
+* cambiare il canale sul trasemttitore (Arduino);
+
+
+<code>
+    #include <SoftwareSerial.h>
+
+    const byte rxPin = 11; // not used for the moment
+    const byte txPin = 10;
+
+    SoftwareSerial mySerial(rxPin, txPin);
+
+    int dly = 100;
+    int note, velocity;
+    int ch = 9;
+
+    // SETUP ///////////////////////////////////////////
+    void setup()
+    {
+     pinMode( rxPin, INPUT );
+     pinMode( txPin, OUTPUT);
+     mySerial.begin( 31250 );
+    }
+
+    // LOOP ////////////////////////////////////////////
+    void loop()
+    {
+     note = random(24)+60;
+     velocity = 127;
+
+     // note On
+     mySerial.write(144 + (ch-1));
+     mySerial.write(note);
+     mySerial.write(velocity);
+
+     delay(dly);
+
+     velocity = 0;
+
+     // note Off
+     mySerial.write(144 + (ch-1));
+     mySerial.write(note);
+     mySerial.write(velocity);
 
      delay(dly);
     }

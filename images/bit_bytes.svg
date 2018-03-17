@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="827.14001"
+   height="236.29933"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.48.5 r10040"
+   sodipodi:docname="bit_bytes.svg">
+  <defs
+     id="defs4" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.7"
+     inkscape:cx="577.07405"
+     inkscape:cy="35.536193"
+     inkscape:document-units="px"
+     inkscape:current-layer="byte2"
+     showgrid="false"
+     showguides="true"
+     inkscape:guide-bbox="true"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     inkscape:window-width="1440"
+     inkscape:window-height="834"
+     inkscape:window-x="0"
+     inkscape:window-y="27"
+     inkscape:window-maximized="1">
+    <sodipodi:guide
+       orientation="0,1"
+       position="705.29295,70.837159"
+       id="guide3814" />
+    <sodipodi:guide
+       orientation="0,1"
+       position="395.11052,48.688589"
+       id="guide3816" />
+    <sodipodi:guide
+       orientation="0,1"
+       position="401.17144,40.102289"
+       id="guide3818" />
+    <sodipodi:guide
+       orientation="1,0"
+       position="392.58514,-12.930721"
+       id="guide3820" />
+    <sodipodi:guide
+       orientation="1,0"
+       position="431.47601,-6.3647318"
+       id="guide3822" />
+    <sodipodi:guide
+       orientation="1,0"
+       position="162.5229,-172.53482"
+       id="guide3824" />
+    <sodipodi:guide
+       orientation="0,1"
+       position="174.9358,0.48001816"
+       id="guide3957" />
+  </sodipodi:namedview>
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:groupmode="layer"
+     id="byte2"
+     inkscape:label="byte_2"
+     transform="translate(-130.42134,-244.34659)"
+     style="display:inline">
+    <rect
+       ry="24.285715"
+       y="284.82932"
+       x="130.42134"
+       height="155.71432"
+       width="827.14288"
+       id="rect3763"
+       style="fill:#b6c1ff;fill-opacity:1;fill-rule:nonzero;stroke:none;display:inline" />
+    <text
+       xml:space="preserve"
+       style="font-size:32px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#b6c1ff;fill-opacity:1;stroke:none;font-family:'Tom\'s New Roman';-inkscape-font-specification:'Tom\'s New Roman'"
+       x="878.53674"
+       y="263.00259"
+       id="text3907-8"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3909-4"
+         x="878.53674"
+         y="263.00259"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Courier;-inkscape-font-specification:Courier Bold">Byte</tspan></text>
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="nibbles"
+     inkscape:label="nibbles"
+     transform="translate(-130.42134,-244.34659)"
+     style="display:inline">
+    <rect
+       style="fill:#5571ff;fill-opacity:1;fill-rule:nonzero;stroke:none;display:inline"
+       id="rect3765"
+       width="382.85718"
+       height="137.14288"
+       x="139.89734"
+       y="294.81448"
+       ry="24.285715" />
+    <rect
+       ry="24.285715"
+       y="294.81448"
+       x="561.89734"
+       height="137.14288"
+       width="382.85718"
+       id="rect3767"
+       style="fill:#5571ff;fill-opacity:1;fill-rule:nonzero;stroke:none;display:inline" />
+    <text
+       xml:space="preserve"
+       style="font-size:32px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#5571ff;fill-opacity:1;stroke:none;font-family:'Tom\'s New Roman';-inkscape-font-specification:'Tom\'s New Roman'"
+       x="481.36359"
+       y="480.16592"
+       id="text3907-8-3"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3909-4-7"
+         x="481.36359"
+         y="480.16592"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Courier;-inkscape-font-specification:Courier Bold">nibbles</tspan></text>
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="byte1"
+     inkscape:label="byte_1"
+     transform="translate(-130.42134,-244.34659)"
+     style="display:inline">
+    <text
+       sodipodi:linespacing="125%"
+       id="text3769"
+       y="409.80878"
+       x="242.88129"
+       style="font-size:32px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;display:inline;font-family:'Tom\'s New Roman';-inkscape-font-specification:'Tom\'s New Roman'"
+       xml:space="preserve"><tspan
+         style="font-size:144px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;fill:#000000;font-family:Courier;-inkscape-font-specification:Courier Bold"
+         y="409.80878"
+         x="242.88129"
+         id="tspan3771"
+         sodipodi:role="line">100 1101</tspan></text>
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="bit2"
+     inkscape:label="bit_2"
+     transform="translate(-130.42134,-244.34659)"
+     style="display:inline">
+    <rect
+       style="fill:#224eff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       id="rect2993"
+       width="95.714287"
+       height="120"
+       x="147.65334"
+       y="303.80878"
+       ry="24.285715" />
+    <text
+       xml:space="preserve"
+       style="font-size:32px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#224eff;fill-opacity:1;stroke:none;font-family:'Tom\'s New Roman';-inkscape-font-specification:'Tom\'s New Roman'"
+       x="165.80714"
+       y="479.43454"
+       id="text3907"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3909"
+         x="165.80714"
+         y="479.43454"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Courier;-inkscape-font-specification:Courier Bold">bit</tspan></text>
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="bit1"
+     inkscape:label="bit_1"
+     transform="translate(-130.42134,-244.34659)"
+     style="display:inline">
+    <text
+       sodipodi:linespacing="125%"
+       id="text3773"
+       y="408.81451"
+       x="150.90858"
+       style="font-size:32px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:'Tom\'s New Roman';-inkscape-font-specification:'Tom\'s New Roman'"
+       xml:space="preserve"><tspan
+         style="font-size:144px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;fill:#000000;font-family:Courier;-inkscape-font-specification:Courier Bold"
+         y="408.81451"
+         x="150.90858"
+         id="tspan3775"
+         sodipodi:role="line">0</tspan></text>
+  </g>
+</svg>

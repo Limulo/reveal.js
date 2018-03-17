@@ -24,71 +24,76 @@ Fu così che nel 1982 lo standard entro sul mercato con i primi due sintetizzato
 
 Con l'ingresso del MIDI, produrre musica diventò più semplice. Nascevano gli home studio. Si poteva scrivere musica usando il PC (nascono inotation scoring software). Anche il mondo dei videogames si appropriò della tecnica MIDI.
 
-
 ## Dati!
 
+Il MIDI utilizza una comunicazione seriale proprio come l'USB (universa serial bus) ora, se il connettore USB è bidirezionale e permette trasmissione e ricezione utilizzando un solo cavo, nel MIDI invece un singolo cavo corrisponde ad un singolo verso di comunicazione.
 
-informazione digitale / analogica
+Connettori MIDI usano DIN a 5 pin anche se solo 3 sono in uso mentri i restanti 2 previsti per successive implementazioni.
 
+### Accenni di matematica binaria
 
-unità base il bit, byte, nibble
+Avendo a che fare con il mondo digitale, dobbiamo sapere che l'unità di base per questo tipo di comunicazioni (quindi di conseguenza anche per il MIDI), è il bit.
 
+Gruppi di otto bit costituiscono i Bytes i quali possono anche essere pensati come coppie di raggruppamenti da 4 bit (i così detti nibbles).
 
-comunicazione seriale/parallela ?
-
-
-con 8 bit a disposizione si rappresentano da 0 a 255
-
-
-<!-- .slide: data-background-color="#fff" -->
-![DIN 5 pin](images/DIN5pin.jpg)<!-- .element: style="width:50%;" -->
-
+Quanti valori possono essere rappresentati con 2 bit? con 4? e con 8?
 
 ## Esperimento 1
 
-### Optoaccoppiatore (optoisolatore)
+### Obiettivi
 
-Gli optoaccoppiatori permettono di mantenere i device MIDI elettricamente disaccoppiati dai connettori in modo da prevenire "ground loops" e proteggerli da "voltage spikes".
+* connettere un dispositivo MIDI trasmittente ad Arduino;
+* connettere Arduino al PC per monitorare i messaggi in arrivo;
 
-### Diodo
+---
 
-impedisce il flusso di corrente nel senso opposto
+Il u-controllore principale di Arduino UNO non si occupa della gestione della porta USB. C'è invece un altro piccolo u-controllore in prossimità del connettore USB che è preposto a questo scopo. E' stato programmato appositamente per fungere, anche ma non solo, da UART (unversal asyncronous serial receiver/transmitter).
+
+Anche se questo non è un u-controllore sul quale noi possiamo intervenire (magari programmandolo in modo differente), si tratta di un dispositivo comunque utilissimo perchè consente di sgravare il u-controllore principale dall'incombenza di restare in ascolto sulla porta seriale o di predisporre tutto il necessario per l'invio di nuovi messaggi sulla stessa.
+
+E' la UART che se ne occupa mentre il u-controllore principale può continuare ad occuparsi del programma principale ed essere semplicemente notificato dalla UART quanto strettamente necessaio.
+
+problema #1: per comunicare con il mondo esterno, Arduino ha bisogno della UART. Sulla scheda Arduino ne abbiamo soltanto una quando invece l'obiettivo ci richiede di stabilire due connessioni indipendenti: una con il PC e una con il dispositivo MIDI.
+
+problema #2: non abbiamo a bordo dell'Arduino un connettero DIN a 5 pin.
+
+L'uscita dalla UART (lo si vede bene dagli schematici della scheda) è riportata ai pin digitali 0 e 1 (quelli etichettati come RX e TX rispettivamente). Si potrebbe pensare di utilizzare questi, portandoli in breadboard, per usare poi un connettore DIN 5 pin al posto della presa USB. Ma così facendo si creerebbe un conflitto tra le due comunicazioni.
+
+Fortunatamente Arduino dispone di una libreria (lo vedremo meglio appena ci addentreremo sul lato software) che permette di emulare i comportamenti di una UART così da permettere più d'una comincazione seriale.
+
+Detto questo diamo uno sguardo al circuito.
+
+### Il circuito
+
+Nello schema è mostrata sia la sezione imputata all'invio sia quella che si occupa della ricezione dei messaggi. Per ora concentriamoci (l'abbiamo già detto) sulla sezione di ricezione dei messaggi.
+
+Qui abbiamo un paio di componenti interessanti:
+
+* optoaccoppiatore (o optoisolatore): gli optoaccoppiatori permettono di mantenere i device MIDI elettricamente disaccoppiati dai connettori in modo da prevenire "ground loops" e proteggerli da "voltage spikes";
+* diodo: impediscono che la corrente fluisca nel senso opposto;
+
+### Hands on
+
+Disponiamo sulla breadboard i nostri componenti e seguiamo i passaggi:
+1. optoisolatore;
+2. connettore DIN 5 pin;
+3. connettiamo l'optoisolatore alle linee di terra e alimentazione (secondo il datasheet del componente);
+4. cabliamo il DIN alla porta LED del optoisolatore;
+5. disponiamo il diodo di protezione;
+6. connettiamo alimentazione e terra di Arduino ai rispettivi rail della breadboard.
+7. connettiamo l'uscita del optoisolatore al pin 11 di Arduino;
 
 ### Il codice
 
-L'hardware di Arduino possiede un supporto integrato per la comunicazione seriale sui pin 0 e 1, quelli che utilizziamo abitualmente per inviare e ricevere dati attraverso il cavo USB al computer.
+Come dicevamo poco fa la libreria **Software Serial** è stata sviluppata appositamente per permette la comunicazione seriale anche su altri pin di Arduino, usando il software per emulare il comportamento della UART.
 
-Sulla board è presente un componente hardware chiamato UART (Universal Asynchronous Receiver Trasmitter) - vedi il microcontrollore ATmega8U2 in prossimità del connettore USB.
+Usando SoftwareSerial è così possibile utilizzare più di una porta di comunicazione seriale su diversi pin.
 
-Questo componente permette all'Arduino di ricevere una comincazione seriale anche se sta solgendo altri task (la UART ha un buffer di 64 bytes).
+Il baudrate da impostare per la comunicazione è 31250.
 
-La libreria **Software Serial** è stat sviluppata appositamente per permette la comunicazione seriale anche su altri pin di Arduino, usando il software per emulare il comportamento della UART.
-
-Usando SoftwareSerial è così possibile utilizzare più di una porta di comunicazione seriale su diversi pin. Tuttavia la libreria presenta una serie di limitazioni che vedremo tra breve.
-
-### analisi dei messaggi
+### Analisi dei messaggi
 
 #### Status Byte / data Byte
-
-
-<!-- .slide: data-background-color="#fff" -->
-![status and data](images/status-and-data.png)<!-- .element: style="width:90%;" -->
-
-
-<!-- .slide: data-background-color="#fff" -->
-![status and data bits](images/status-and-data-bits.png)<!-- .element: style="width:50%;" -->
-
-
-<!-- .slide: data-background-color="#fff" -->
-![status and data bits](images/nibbles.png)<!-- .element: style="width:50%;" -->
-
-
-<!-- .slide: data-background-color="#fff" -->
-![status and data bits](images/MIDI-channels.png)<!-- .element: style="width:90%;" -->
-
-
-<!-- .slide: data-background-size="contain" data-background-color="#fff" data-background-image="images/note_numbers.png" -->
-
 
 #### Osservazioni: Note ON & Note Off
 
@@ -106,14 +111,41 @@ Anche in questo caso si risparmiano byte preziosi.
 
 ## Esperimento 2
 
+### Obiettivi
+* connettere un dispositivo MIDI ricevente ad Arduino;
+* inviare messaggi al dispositivo programmaticamente;
+
 ### Il circuito
 
+Il circuito in questo caso è più semplice
+
 ### Il codice
+
+Non suona, perchè??
+
+Il problema è causato dala fatto che stiamo trasmettendo su di un canale sbagliato.
+
+Il MIDI consente infatti di trasmetter messaggi a più dispositivi diversi connessi simultaneamente (o in daisy chain) ad un unico  trasmettitore.
+
+discorso dei canali: da 1 a 16 (da 0 a 15).
+
+per permetter al sistema di emettere suono possiamo agire in due modi diversi:
+* cambiare il canale sui cui il dispositivo ricevente resta in ascolto dei dati MIDI in ingresso;
+* oppure cambiare il canale da usare nella trasmissione dei dati lato Arduino;
+
 
 ## Esperimento 3: recap.
 
 ### Il cocice
 
-Come dicevamo la libreria SoftwareSerial ha alcune limitazioni. Pur potendo essere utilizzata praticamente sulla maggiorparte di pin dell'arduino UNO, non è in grado tuttavia di gestire 2 flussi di informazioni simultanei (ricezione ed invio).
+La libreria Software Serial, pur essendo molto versatile, presenta una serie di limitazioni.
 
-Per risolvere il problema possiamo usare la libreria AltSoftwareSerial, la quale ha però alcune limitazioni intrinseche come la necessità di usare 2 soli pin specifici: il 9 per la trasmissione e l'8 per la ricezione.
+Pur potendo essere utilizzata praticamente sulla maggiorparte di pin dell'arduino UNO, non è in grado di gestire 2 flussi di informazioni simultanei (ricezione ed invio).
+
+Per risolvere il problema possiamo usare la libreria AltSoftwareSerial.
+
+La AltSoftwareSerial non è libera dalle proprie idiosincrasie come la necessità di usare 2 soli pin specifici: il 9 per la trasmissione e l'8 per la ricezione.
+
+Proviamo uno sketch dove la nostra tastiera MIDI invia messaggi ad Arduino che poi, a sua volta, li reinoltra alla drum machine.
+
+### MIDI Library
