@@ -13,31 +13,31 @@
 <svg width="100%" viewBox="0 0 1024 744.09">
 
   <svg class="fragment" data-fragment-index="4">
-    <use xlink:href="/images/MIDI_birthday.svg#others">
+    <use xlink:href="images/MIDI_birthday.svg#others">
   </svg>
 
   <svg class="fragment" data-fragment-index="3">
-    <use xlink:href="/images/MIDI_birthday.svg#sci">
+    <use xlink:href="images/MIDI_birthday.svg#sci">
   </svg>
 
   <svg class="fragment" data-fragment-index="2">
-    <use xlink:href="/images/MIDI_birthday.svg#oberheim">
+    <use xlink:href="images/MIDI_birthday.svg#oberheim">
   </svg>
 
   <svg data-fragment-index="1">
-    <use xlink:href="/images/MIDI_birthday.svg#roland">
+    <use xlink:href="images/MIDI_birthday.svg#roland">
   </svg>
 
 </svg>
 
 
-![Roland Jupiter6](/images/roland_jupiter6.jpg)
+![Roland Jupiter6](images/roland_jupiter6.jpg)
 
 
-![Roland prophet600](/images/prophet_600.jpg)
+![Roland prophet600](images/prophet_600.jpg)
 
 
-![Roland tr909](/images/roland_tr909.jpg)
+![Roland tr909](images/roland_tr909.jpg)
 
 
 
@@ -49,23 +49,23 @@
 <svg width="100%" viewBox="0 0 827.14 236.30">
 
   <svg class="fragment" data-fragment-index="4">
-    <use xlink:href="/images/bit_bytes.svg#byte2">
+    <use xlink:href="images/bit_bytes.svg#byte2">
   </svg>
 
   <svg class="fragment" data-fragment-index="5">
-    <use xlink:href="/images/bit_bytes.svg#nibbles">
+    <use xlink:href="images/bit_bytes.svg#nibbles">
   </svg>
 
   <svg class="fragment" data-fragment-index="3">
-    <use xlink:href="/images/bit_bytes.svg#byte1">
+    <use xlink:href="images/bit_bytes.svg#byte1">
   </svg>
 
   <svg class="fragment" data-fragment-index="2">
-    <use xlink:href="/images/bit_bytes.svg#bit2">
+    <use xlink:href="images/bit_bytes.svg#bit2">
   </svg>
 
   <svg data-fragment-index="1">
-    <use xlink:href="/images/bit_bytes.svg#bit1">
+    <use xlink:href="images/bit_bytes.svg#bit1">
   </svg>
 
 </svg>
@@ -92,10 +92,10 @@
 ### Il circuito
 
 
-<!-- .slide: data-background-size="contain" data-background-color="#fff" data-background-image="http://www.limulo.net/website/assets/images/midi-interface/wikipedia_MIDI_IN_OUT_schematic.jpg" -->
+<!-- .slide: data-background-size="contain" data-background-color="#fff" data-background-image="images/wikipedia_MIDI_IN_OUT_schematic.jpg" -->
 
 
-<!-- .slide: data-background-size="contain" data-background-color="#fff" data-background-image="http://www.limulo.net/website/assets/images/midi-interface/perotti_schematics.jpg" -->
+<!-- .slide: data-background-size="contain" data-background-color="#fff" data-background-image="images/perotti_schematics.jpg" -->
 
 
 #### Optoaccoppiatore (optoisolatore)
@@ -104,7 +104,7 @@
 ![optoaccoppiatore](images/Optoisolator_Pinout.png)
 
 
-<!-- .slide: data-background-size="contain" data-background-color="#fff" data-background-image="http://www.limulo.net/website/assets/images/midi-interface/MIDI_IN_bb_new.png" -->
+<!-- .slide: data-background-size="contain" data-background-color="#fff" data-background-image="images/MIDI_IN_bb_new.png" -->
 
 
 <!-- .slide: data-background-size="contain" data-background-color="#fff"-->
@@ -194,13 +194,13 @@
 ### Il circuito
 
 
-<!-- .slide: data-background-size="contain" data-background-color="#fff" data-background-image="http://www.limulo.net/website/assets/images/midi-interface/wikipedia_MIDI_IN_OUT_schematic.jpg" -->
+<!-- .slide: data-background-size="contain" data-background-color="#fff" data-background-image="images/wikipedia_MIDI_IN_OUT_schematic.jpg" -->
 
 
-<!-- .slide: data-background-size="contain" data-background-color="#fff" data-background-image="http://www.limulo.net/website/assets/images/midi-interface/perotti_schematics.jpg" -->
+<!-- .slide: data-background-size="contain" data-background-color="#fff" data-background-image="images/perotti_schematics.jpg" -->
 
 
-<!-- .slide: data-background-size="contain" data-background-color="#fff" data-background-image="http://www.limulo.net/website/assets/images/midi-interface/MIDI_OUT_bb_new.png" -->
+<!-- .slide: data-background-size="contain" data-background-color="#fff" data-background-image="images/MIDI_OUT_bb_new.png" -->
 
 
 ### Il codice
@@ -326,7 +326,7 @@ Non suona! perchè?
 ### Il circuito
 
 
-<!-- .slide: data-background-size="contain" data-background-color="#fff" data-background-image="http://www.limulo.net/website/assets/images/midi-interface/MIDI_IN_OUT_bb_new.png" -->
+<!-- .slide: data-background-size="contain" data-background-color="#fff" data-background-image="images/MIDI_IN_OUT_bb_new.png" -->
 
 
 ### Il cocice
