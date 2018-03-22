@@ -342,3 +342,17 @@ Libreria **AltSerial**
       }
     }
 </code>
+
+
+
+## Ricapitolando
+
+
+## Componenti necessarie
+
+* un optoisoltaore [**6N138**](http://www.vishay.com/docs/83605/6n138.pdf) oppure [4n28](http://www.vishay.com/docs/83725/4n25.pdf);
+* un diodi ad alta velocità [**1N4148**](https://en.wikipedia.org/wiki/1N4148);
+* quattro resistori da **220 Ohm**;
+* due connettori **5 pin DIN**;
+* due **LED** rossi e due reistori da **220Ohm** (opzionali);
+* cavetti, breadboard, Arduino;
