@@ -1,7 +1,8 @@
-# Intro
+# Introduzione
 
 
-TODO: logo midi
+<!-- .slide: data-background-color="#fff" -->
+![MIDI logo](images/MIDI_logo.jpg)<!-- .element: style="width:50%;" -->
 
 
 <!-- .slide: data-background-size="contain" data-background-color="#000" data-background-image="images/moog.jpg" -->
@@ -97,13 +98,13 @@ TODO: logo midi
 <!-- .slide: data-background-size="contain" data-background-color="#fff" data-background-image="http://www.limulo.net/website/assets/images/midi-interface/perotti_schematics.jpg" -->
 
 
-<!-- .slide: data-background-size="contain" data-background-color="#fff" data-background-image="http://www.limulo.net/website/assets/images/midi-interface/MIDI_IN_bb_new.png" -->
-
-
 #### Optoaccoppiatore (optoisolatore)
 
 <!-- .slide: data-background-size="contain" data-background-color="#fff"-->
 ![optoaccoppiatore](images/Optoisolator_Pinout.png)
+
+
+<!-- .slide: data-background-size="contain" data-background-color="#fff" data-background-image="http://www.limulo.net/website/assets/images/midi-interface/MIDI_IN_bb_new.png" -->
 
 
 <!-- .slide: data-background-size="contain" data-background-color="#fff"-->
@@ -153,12 +154,6 @@ TODO: logo midi
 
 
 
-TODO: messaggio MIDI note ON
-
-
-TODO: messaggio MIDI note OFF
-
-
 <!-- .slide: data-background-color="#fff" -->
 ![status and data](images/status-and-data.png)<!-- .element: style="width:90%;" -->
 
@@ -171,6 +166,14 @@ TODO: messaggio MIDI note OFF
 
 
 #### Osservazioni: Note ON & Note Off
+
+
+<!-- .slide: data-background-color="#fff" -->
+![note on bytes](images/note_on_bytes.png)<!-- .element: style="width:90%;" -->
+
+
+<!-- .slide: data-background-color="#fff" -->
+![note off bytes](images/note_off_bytes.png)<!-- .element: style="width:90%;" -->
 
 
 #### Osservazioni: Running status
@@ -310,6 +313,12 @@ Non suona! perchè?
 
 ## Esperimento 3: recap.
 
+### Obiettivi<!-- .element: class="fragment" -->
+
+* connettere un dispositivo MIDI trasmittente ad Arduino;<!-- .element: class="fragment" -->
+* connettere un dispositivo MIDI ricevente ad Arduino;<!-- .element: class="fragment" -->
+* usare Arduino come ripetitore/modificatore dei messaggi MIDI di passaggio;<!-- .element: class="fragment" -->
+
 
 <!-- .slide: data-background-size="contain" data-background-color="#fff" data-background-image="images/MIDI-studio-in-out.png" -->
 
@@ -364,5 +373,5 @@ Libreria **AltSerial**
 * un diodi ad alta velocità [**1N4148**](https://en.wikipedia.org/wiki/1N4148);
 * quattro resistori da **220 Ohm**;
 * due connettori **5 pin DIN**;
-* due **LED** rossi e due reistori da **220Ohm** (opzionali);
+* due **LED** rossi e due reistori da **220 Ohm** (opzionali);
 * cavetti, breadboard, Arduino;
