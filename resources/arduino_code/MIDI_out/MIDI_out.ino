@@ -7,7 +7,6 @@ SoftwareSerial mySerial(rxPin, txPin);
 
 int dly = 1000;
 int note, velocity;
-int ch = 9;
 
 // SETUP ///////////////////////////////////////////
 void setup()
@@ -24,7 +23,7 @@ void loop()
  velocity = 127;
 
  // note On
- mySerial.write(144 + (ch-1) );
+ mySerial.write(144);
  mySerial.write(note);
  mySerial.write( velocity );
 
@@ -33,7 +32,7 @@ void loop()
  velocity = 0;
 
  // note Off
- mySerial.write(144 + (ch-1));
+ mySerial.write(144);
  mySerial.write(note);
  mySerial.write( velocity );
 

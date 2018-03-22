@@ -1,6 +1,9 @@
 # Intro
 
 
+TODO: logo midi
+
+
 <!-- .slide: data-background-size="contain" data-background-color="#000" data-background-image="images/moog.jpg" -->
 <!-- 1964 - moog -->
 
@@ -150,6 +153,12 @@
 
 
 
+TODO: messaggio MIDI note ON
+
+
+TODO: messaggio MIDI note OFF
+
+
 <!-- .slide: data-background-color="#fff" -->
 ![status and data](images/status-and-data.png)<!-- .element: style="width:90%;" -->
 
@@ -237,6 +246,7 @@
     }
 </code>
 
+
 Non suona! perchè?
 
 
@@ -249,7 +259,7 @@ Non suona! perchè?
 
 
 * cambiare il canale sul ricevitore;
-* cambiare il canale sul trasemttitore (Arduino);
+* cambiare il canale sul trasmettitore (Arduino);
 
 
 <code>
